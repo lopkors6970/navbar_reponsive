@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Montserrat';
+}
+nav{
+    background: #0082e6;
+    height: 80px;
+    width: 100%;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px; /* diikeyde ortalamak için kullanıldı */
+    padding: 0 100px; /* soldan 100px uzaklastı. */
+    font-weight: bold;
+}
+nav ul{
+    float: right; /* sag tarafa gectiler. */
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block; /* alt alta sıralı iken soldan sağa sıralı olmaya başladı */
+    line-height: 80px; /* dikeyde ortalamak için yapıldı */
+    margin: 0 5px; /* alt ve üst için 0 sağ ve soldan 5px kadar boşluk bırakıldı */
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px; /* burda hedef yazılara iç boşluk verince dışardan genişleme yapıp
+    güzel bir görünüm sağlıyor. */ 
+    border-radius: 3px;
+    text-transform: uppercase; /* harflerin hepsi büyük harf oldu */
+}
+a.active,a:hover{ /* a.active daima tıklanmış gibi duruyor sayfa açılır açılmaz tıklanmış gibi */ 
+    background: #1b9bff;
+    transition: 0.5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white; 
+    float: right; /* sagdan yaslama */
+    line-height: 80px; /* dikeyde ortalanması için verildi */
+    margin-right: 40px; /* bu mesela sağdan 40px uzaklaşırken ahreflerimiz de bundan uzaklaşacaktır */
+    cursor: pointer; /* imlec tiklamali oldu */ 
+    display: none; /* ilk basta görüntülenmesin */ 
+}   
+#check{
+    display: none; /* ilk basta görüntülenmesini istemiyoruz */
+}
+@media (max-width: 952px){ /* telefona uyarlamak icin aynı zamanda pcde küçük ekrana alınca görünüm için bu şekilde tasarlandı. */
+    label.logo{ /* label.logo demeye özen göster */
+        font-size: 30px; /* 35px den düştü */
+    }
+    nav ul li a{
+        font-size: 16px; /* 17px den düştü */
+    }
+    @media (max-width: 858px){
+        .checkbtn{
+            display: block; /* gozukmuyordu eklendi */
+        }
+        ul{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+        nav ul li{
+            display: block; /* yan yana iken alt alta gelmesini sağladı */ 
+            margin: 50px 0;
+            line-height: 30px;
+        }
+        nav ul li a{
+            font-size: 20px;
+        }
+        a:hover,a.active{
+            background: none;
+            color: #0082e6;
+        }
+        #check:checked ~ ul{
+            left: 0;
+        }
+    }
+}
+section{
+    background: url(img/pexels-zhmkhv-5512653.jpg) no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px);
+}
